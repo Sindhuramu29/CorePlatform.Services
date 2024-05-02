@@ -1,0 +1,80 @@
+2024-05-02 12:16:53.814 +05:30 [INF] Registered 2 endpoints in 923 milliseconds.
+2024-05-02 12:16:55.959 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2024-05-02 12:16:56.175 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "RuleLibrary" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_RuleLibrary" PRIMARY KEY AUTOINCREMENT,
+    "RuleName" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "RuleExpression" TEXT NOT NULL
+);
+2024-05-02 12:16:56.180 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "PlanAssociation" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_PlanAssociation" PRIMARY KEY AUTOINCREMENT,
+    "PlanName" TEXT NOT NULL,
+    "LibraryId" INTEGER NOT NULL,
+    CONSTRAINT "FK_PlanAssociation_RuleLibrary_LibraryId" FOREIGN KEY ("LibraryId") REFERENCES "RuleLibrary" ("Id") ON DELETE CASCADE
+);
+2024-05-02 12:16:56.185 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_PlanAssociation_LibraryId" ON "PlanAssociation" ("LibraryId");
+2024-05-02 12:16:56.483 +05:30 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-05-02 12:16:56.652 +05:30 [INF] Now listening on: https://localhost:7189
+2024-05-02 12:16:56.654 +05:30 [INF] Now listening on: http://localhost:5034
+2024-05-02 12:16:56.655 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-02 12:16:56.656 +05:30 [INF] Hosting environment: Development
+2024-05-02 12:16:56.657 +05:30 [INF] Content root path: C:\Users\cshreekantoak\source\repos\CorePlatform.Services\CorePlatform.Services
+2024-05-02 12:17:07.824 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger - null null
+2024-05-02 12:17:08.236 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger - 302 0 null 419.2769ms
+2024-05-02 12:17:08.245 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/index.html - null null
+2024-05-02 12:17:08.479 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/index.html - 200 null text/html; charset=utf-8 234.2368ms
+2024-05-02 12:17:08.497 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/swagger-ui.css - null null
+2024-05-02 12:17:08.502 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/index.css - null null
+2024-05-02 12:17:08.504 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 12:17:08.502 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/swagger-ui-bundle.js - null null
+2024-05-02 12:17:08.537 +05:30 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-05-02 12:17:08.502 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/swagger-ui-standalone-preset.js - null null
+2024-05-02 12:17:08.569 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/index.css - 200 218 text/css 67.1224ms
+2024-05-02 12:17:08.627 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-05-02 12:17:08.630 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-05-02 12:17:08.591 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 87.2637ms
+2024-05-02 12:17:08.678 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/_vs/browserLink - null null
+2024-05-02 12:17:08.672 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/swagger-ui.css - 200 151213 text/css 175.1294ms
+2024-05-02 12:17:08.672 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/swagger-ui-standalone-preset.js - 200 230642 text/javascript 169.7695ms
+2024-05-02 12:17:08.687 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-05-02 12:17:08.722 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/swagger-ui-bundle.js - 200 1385018 text/javascript 219.6864ms
+2024-05-02 12:17:08.822 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/_vs/browserLink - 200 null text/javascript; charset=UTF-8 144.3511ms
+2024-05-02 12:17:09.059 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/v1/swagger.json - null null
+2024-05-02 12:17:09.093 +05:30 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-02 12:17:09.915 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 855.5547ms
+2024-05-02 12:57:00.304 +05:30 [INF] Registered 2 endpoints in 1,064 milliseconds.
+2024-05-02 12:57:02.192 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-05-02 12:57:02.434 +05:30 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2024-05-02 12:57:02.557 +05:30 [INF] Now listening on: https://localhost:7189
+2024-05-02 12:57:02.559 +05:30 [INF] Now listening on: http://localhost:5034
+2024-05-02 12:57:02.560 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-02 12:57:02.561 +05:30 [INF] Hosting environment: Development
+2024-05-02 12:57:02.562 +05:30 [INF] Content root path: C:\Users\cshreekantoak\source\repos\CorePlatform.Services\CorePlatform.Services
+2024-05-02 12:57:10.727 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger - null null
+2024-05-02 12:57:11.037 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger - 302 0 null 314.4418ms
+2024-05-02 12:57:11.076 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/index.html - null null
+2024-05-02 12:57:11.367 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/index.html - 200 null text/html; charset=utf-8 291.1472ms
+2024-05-02 12:57:11.404 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/index.css - null null
+2024-05-02 12:57:11.404 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/swagger-ui.css - null null
+2024-05-02 12:57:11.405 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/swagger-ui-bundle.js - null null
+2024-05-02 12:57:11.428 +05:30 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-05-02 12:57:11.431 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/index.css - 200 218 text/css 26.5543ms
+2024-05-02 12:57:11.483 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-05-02 12:57:11.499 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/swagger-ui.css - 200 151213 text/css 94.1673ms
+2024-05-02 12:57:11.523 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-05-02 12:57:11.527 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/swagger-ui-bundle.js - 200 1385018 text/javascript 122.0267ms
+2024-05-02 12:57:11.606 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/swagger-ui-standalone-preset.js - null null
+2024-05-02 12:57:11.610 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 12:57:11.638 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-05-02 12:57:11.641 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 30.5825ms
+2024-05-02 12:57:11.641 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/swagger-ui-standalone-preset.js - 200 230642 text/javascript 35.5463ms
+2024-05-02 12:57:11.696 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/_vs/browserLink - null null
+2024-05-02 12:57:11.802 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/_vs/browserLink - 200 null text/javascript; charset=UTF-8 106.6097ms
+2024-05-02 12:57:12.489 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/v1/swagger.json - null null
+2024-05-02 12:57:12.517 +05:30 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-02 12:57:13.303 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 813.9879ms
