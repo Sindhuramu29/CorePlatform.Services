@@ -14,17 +14,17 @@ using System.Threading.Tasks;
 
 namespace CorePlatform.Services.Infrastructure.Repository
 {
-    public static class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private static AppDbContext _dbContext;
         private static GenericRepository<RulesLibrary> _ruleRepository;
         private static GenericRepository<PlanAssociation> _planAssociationRepository;
-        public static void Initialize(AppDbContext context)
+        public UnitOfWork(AppDbContext context)
         {
-            if (_dbContext == null) _dbContext = context;
+            _dbContext ??= context;
         }
 
-        public static GenericRepository<RulesLibrary> RuleLibraryRepository
+        public GenericRepository<RulesLibrary> RuleLibraryRepository
         {
             get
             {
@@ -35,7 +35,7 @@ namespace CorePlatform.Services.Infrastructure.Repository
             }
         }
 
-        public static GenericRepository<PlanAssociation> PlanRepository
+        public GenericRepository<PlanAssociation> PlanRepository
         {
             get
             {
@@ -46,7 +46,7 @@ namespace CorePlatform.Services.Infrastructure.Repository
             }
         }
 
-        public async static Task<int> Save()
+        public async Task<int> Save()
         {
             return await _dbContext.SaveChangesAsync();
         }

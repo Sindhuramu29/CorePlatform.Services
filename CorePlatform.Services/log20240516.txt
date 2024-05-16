@@ -1,0 +1,19 @@
+2024-05-16 13:54:25.584 +05:30 [INF] Registered 2 endpoints in 692 milliseconds.
+2024-05-16 13:54:27.113 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2024-05-16 13:54:27.848 +05:30 [INF] Now listening on: https://localhost:7189
+2024-05-16 13:54:27.855 +05:30 [INF] Now listening on: http://localhost:5034
+2024-05-16 13:54:27.863 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-16 13:54:27.866 +05:30 [INF] Hosting environment: Development
+2024-05-16 13:54:27.877 +05:30 [INF] Content root path: C:\Users\sindhr\Source\Repos\CorePlatform.Services\CorePlatform.Services
+2024-05-16 13:54:31.244 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger - null null
+2024-05-16 13:54:32.452 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger - 302 0 null 1257.7847ms
+2024-05-16 13:54:32.483 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/index.html - null null
+2024-05-16 13:54:33.152 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/index.html - 200 null text/html; charset=utf-8 669.1839ms
+2024-05-16 13:54:33.221 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-16 13:54:33.246 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/_framework/aspnetcore-browser-refresh.js - 200 13778 application/javascript; charset=utf-8 25.3875ms
+2024-05-16 13:54:33.332 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/_vs/browserLink - null null
+2024-05-16 13:54:33.608 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/_vs/browserLink - 200 null text/javascript; charset=UTF-8 276.9578ms
+2024-05-16 13:54:33.696 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7189/swagger/v1/swagger.json - null null
+2024-05-16 13:54:33.748 +05:30 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-05-16 13:54:34.489 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7189/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 793.6615ms

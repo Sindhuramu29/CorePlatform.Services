@@ -13,15 +13,17 @@ namespace CorePlatform.Services.UseCases.CommandQueries.MemberRule.Query
 {
     public class MemberRuleQueryHandler : IRequestHandler<MemberRuleQuery, ResultInfo<IEnumerable<MemberRuleEvaluationDTO>>>
     {
-        public MemberRuleQueryHandler(AppDbContext context)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public MemberRuleQueryHandler(IUnitOfWork unitOfWork)
         {
-            UnitOfWork.Initialize(context);
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<ResultInfo<IEnumerable<MemberRuleEvaluationDTO>>> Handle(MemberRuleQuery request, CancellationToken cancellationToken)
         {
 
-            var library =  UnitOfWork.RuleLibraryRepository.GetByID(3);
+            var library =  _unitOfWork.RuleLibraryRepository.GetByID(3);
 
             var result = new List<MemberRuleEvaluationDTO>();
 
