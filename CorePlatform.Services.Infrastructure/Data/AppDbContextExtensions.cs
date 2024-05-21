@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CorePlatform.Services.Infrastructure.Repository;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace CorePlatform.Services.Infrastructure.Data
         public static void AddApplicationDbContext(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

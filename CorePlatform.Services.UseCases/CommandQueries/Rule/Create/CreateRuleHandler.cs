@@ -14,10 +14,11 @@ namespace CorePlatform.Services.UseCases.CommandQueries.Rule.Create
 {
     public class CreateRuleHandler : IRequestHandler<CreateRuleCommand, ResultInfo<int>>
     {
+        private readonly IUnitOfWork _unitOfWork;
         private IMediator _mediator;
-        public CreateRuleHandler(AppDbContext context, IMediator mediator)
+        public CreateRuleHandler(IUnitOfWork unitOfWork, IMediator mediator)
         {
-            UnitOfWork.Initialize(context);
+            _unitOfWork = unitOfWork;
             _mediator = mediator;
         }
 
@@ -25,8 +26,8 @@ namespace CorePlatform.Services.UseCases.CommandQueries.Rule.Create
         {
             var ruleLib = new RulesLibrary(request.RuleName);
             ruleLib.RuleExpression = request.RuleExpression;
-            UnitOfWork.RuleLibraryRepository.Insert(ruleLib);
-            await UnitOfWork.Save();
+            _unitOfWork.RuleLibraryRepository.Insert(ruleLib);
+            await _unitOfWork.Save();
 
             //raise notification 
             var domainEvent = new CreateRuleEvent(ruleLib.Id);
